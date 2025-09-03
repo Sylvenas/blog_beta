@@ -30,8 +30,8 @@ function Nav() {
           />
         </Link>
         <Link
-          as="https://twitter.com/TaoZhao_"
-          href="https://twitter.com/TaoZhao_"
+          as="https://twitter.com/sylvenas_"
+          href="https://twitter.com/sylvenas_"
           className="cursor-pointer"
           target="_blank"
         >

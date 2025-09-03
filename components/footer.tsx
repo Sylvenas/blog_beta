@@ -20,7 +20,7 @@ const platforms = [
   {
     name: "GitHub",
     backgroundColor: "#0976b4",
-    fixedLink: "https://github.com/Sylvenas/signup_beta/pulls",
+    fixedLink: "https://github.com/Sylvenas/blog_beta/pulls",
     icon: githubIcon.src,
   },
 ];
