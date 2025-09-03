@@ -11,6 +11,9 @@ type PostType = {
   excerpt: string;
   content: string;
   anchors: Anchor[];
+  ogImage?: {
+    url: string;
+  };
 };
 
 export default PostType;

@@ -6,6 +6,7 @@ import PostBody from "../../components/post-body";
 import PostHeader from "../../components/post-header";
 import Layout from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
+import { HOME_OG_IMAGE_URL } from "../../lib/constants";
 import PostTitle from "../../components/post-title";
 import Head from "next/head";
 import markdownToHtml from "../../lib/markdownToHtml";
@@ -19,7 +20,11 @@ type Props = {
 
 export default function Post({ post }: Props) {
   const router = useRouter();
-  const title = `little forest | ${post.title}`;
+  const title = `${post.title} | Little Forest`;
+  const description = post.excerpt || `Little Forest - ${post.title}`;
+  const url = `https://sylvenas.vercel.app/posts/${post.slug}`;
+  const ogImage = (post as any).ogImage?.url || HOME_OG_IMAGE_URL;
+
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -31,6 +36,16 @@ export default function Post({ post }: Props) {
         <>
           <Head>
             <title>{title}</title>
+            <meta name="description" content={description} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
+            <meta property="og:image" content={ogImage} />
+            <meta property="og:type" content="article" />
+            <meta property="og:url" content={url} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={ogImage} />
           </Head>
           <article>
             <PostHeader
